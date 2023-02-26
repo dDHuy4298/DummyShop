@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.sun.dummyshop.data.model.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutCartProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_8"
+        android:layout_marginVertical="@dimen/dp_4"
+        android:background="@drawable/bg_item_cart_product"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:paddingVertical="@dimen/dp_8">
+
+        <ImageView
+            android:id="@+id/imageBoughtProduct"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            app:image="@{product.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <TextView
+            android:id="@+id/textBoughtProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{product.name}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toTopOf="@+id/textBoughtProductPrice"
+            app:layout_constraintEnd_toStartOf="@id/buttonDelete"
+            app:layout_constraintStart_toEndOf="@id/imageBoughtProduct"
+            app:layout_constraintTop_toTopOf="@id/imageBoughtProduct" />
+
+        <TextView
+            android:id="@+id/textBoughtProductPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@{@string/text_price(product.price)}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintStart_toEndOf="@id/imageBoughtProduct"
+            app:layout_constraintTop_toBottomOf="@+id/textBoughtProductName" />
+
+        <ImageButton
+            android:id="@+id/buttonMinus"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@drawable/bg_button_add_minus"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/imageBoughtProduct"
+            app:layout_constraintTop_toBottomOf="@id/textBoughtProductPrice"
+            app:layout_constraintWidth_percent="0.07" />
+
+        <TextView
+            android:id="@+id/textQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_24"
+            android:text="@{Integer.toString(product.quantityInCart)}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/buttonMinus"
+            app:layout_constraintStart_toEndOf="@id/buttonMinus"
+            app:layout_constraintTop_toTopOf="@id/buttonMinus" />
+
+        <ImageButton
+            android:id="@+id/buttonAdd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@drawable/bg_button_add_minus"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_add"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/textQuantity"
+            app:layout_constraintTop_toBottomOf="@id/textBoughtProductPrice"
+            app:layout_constraintWidth_percent="0.07" />
+
+        <ImageButton
+            android:id="@+id/buttonDelete"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="@id/imageBoughtProduct"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageBoughtProduct"
+            app:layout_constraintWidth_percent="0.06" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

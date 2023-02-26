@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bill"
+            type="com.sun.dummyshop.data.model.Bill" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dp_56">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_item_history"
+                android:padding="@dimen/dp_24">
+
+                <TextView
+                    android:id="@+id/textDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@{bill.date}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_24"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textTotalItems"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="@{@string/text_total_items(bill.totalItems)}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_20"
+                    app:layout_constraintEnd_toEndOf="@id/textDate"
+                    app:layout_constraintStart_toStartOf="@id/textDate"
+                    app:layout_constraintTop_toBottomOf="@id/textDate" />
+
+                <TextView
+                    android:id="@+id/textTotalAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="@{@string/text_total_amount(bill.totalAmount)}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_20"
+                    app:layout_constraintEnd_toEndOf="@id/textDate"
+                    app:layout_constraintStart_toStartOf="@id/textDate"
+                    app:layout_constraintTop_toBottomOf="@id/textTotalItems" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerBillProducts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    app:data="@{bill.itemsBought}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textTotalAmount"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_bill_product" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/textCheckout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:background="@drawable/bg_toolbar"
+            android:elevation="@dimen/dp_4"
+            android:padding="@dimen/dp_16"
+            android:text="@string/title_checkout"
+            android:textAlignment="center"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonBackToHome"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:background="@drawable/bg_button_add_to_cart"
+            android:elevation="@dimen/dp_8"
+            android:paddingHorizontal="@dimen/dp_32"
+            android:paddingVertical="@dimen/dp_4"
+            android:text="@string/text_back_to_home"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

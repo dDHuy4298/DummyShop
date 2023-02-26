@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detailVM"
+            type="com.sun.dummyshop.ui.detail.DetailViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/dp_56">
+
+                <ImageView
+                    android:id="@+id/imageProductImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@null"
+                    app:image="@{detailVM.currentProduct.image}"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageProductImageDuplicate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@null"
+                    app:image="@{detailVM.currentProduct.image}"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/viewProductInformationTop"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_view_top_product_information"
+                    app:layout_constraintBottom_toBottomOf="@id/imageProductImage"
+                    app:layout_constraintDimensionRatio="9:2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageProductImage" />
+
+                <View
+                    android:id="@+id/viewProductInformationBottom"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_view_bottom_product_information"
+                    android:paddingBottom="@dimen/dp_32"
+                    app:layout_constraintBottom_toBottomOf="@id/textProductStock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageProductImage" />
+
+                <TextView
+                    android:id="@+id/textProductName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:text="@{detailVM.currentProduct.name}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_28"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/textProductPrice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/viewProductInformationTop" />
+
+                <RatingBar
+                    android:id="@+id/ratingProductRating"
+                    style="@style/ProductRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:isIndicator="true"
+                    android:rating="@{detailVM.currentProduct.rating}"
+                    android:scaleX="0.6"
+                    android:scaleY="0.6"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="0dp"
+                    app:layout_constraintStart_toStartOf="@id/textProductName"
+                    app:layout_constraintTop_toBottomOf="@id/textProductName" />
+
+                <TextView
+                    android:id="@+id/textProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:text="@{@string/text_price(detailVM.currentProduct.price)}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_40"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ratingProductRating"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textProductName" />
+
+                <TextView
+                    android:id="@+id/textProductMaterial"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(detailVM.currentProduct.material).equals(String.valueOf(`null`)) ? @string/text_material_default : @string/text_material(detailVM.currentProduct.material)}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintEnd_toStartOf="@id/buttonFavorite"
+                    app:layout_constraintStart_toStartOf="@id/textProductName"
+                    app:layout_constraintTop_toBottomOf="@id/ratingProductRating" />
+
+                <TextView
+                    android:id="@+id/textProductColor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="@{String.valueOf(detailVM.currentProduct.color).equals(String.valueOf(`null`)) ? @string/text_color_default : @string/text_color(detailVM.currentProduct.color)}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintEnd_toStartOf="@id/buttonFavorite"
+                    app:layout_constraintStart_toStartOf="@id/textProductName"
+                    app:layout_constraintTop_toBottomOf="@id/textProductMaterial" />
+
+                <TextView
+                    android:id="@+id/textProductSold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="@{@string/text_sold(detailVM.currentProduct.sold)}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintEnd_toStartOf="@id/buttonFavorite"
+                    app:layout_constraintStart_toStartOf="@id/textProductName"
+                    app:layout_constraintTop_toBottomOf="@id/textProductColor" />
+
+                <TextView
+                    android:id="@+id/textProductStock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:paddingBottom="@dimen/dp_32"
+                    android:text="@{@string/text_stock(detailVM.currentProduct.stock)}"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintEnd_toStartOf="@id/buttonFavorite"
+                    app:layout_constraintStart_toStartOf="@id/textProductName"
+                    app:layout_constraintTop_toBottomOf="@id/textProductSold" />
+
+                <ImageButton
+                    android:id="@+id/buttonFavorite"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@{detailVM.isFavorite() ? @drawable/ic_favorite_fill : @drawable/ic_favorite_line}"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="@id/textProductPrice"
+                    app:layout_constraintTop_toTopOf="@id/textProductSold"
+                    app:layout_constraintWidth_percent="0.1" />
+
+                <TextView
+                    android:id="@+id/textSimilarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="@string/title_similar_products"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_24"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewProductInformationBottom" />
+
+                <TextView
+                    android:id="@+id/textSimilarSeeMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:drawablePadding="@dimen/dp_4"
+                    android:text="@string/text_see_more"
+                    android:textColor="@color/color_pickled_bluewood"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="italic"
+                    app:drawableEndCompat="@drawable/ic_next"
+                    app:layout_constraintBaseline_toBaselineOf="@id/textSimilarTitle"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerSimilar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:overScrollMode="never"
+                    app:data="@{detailVM.similarProducts}"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textSimilarTitle"
+                    app:spanCount="2"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_product" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_8">
+
+            <ImageButton
+                android:id="@+id/buttonBack"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_8"
+                android:background="@drawable/bg_button_transparent"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.1" />
+
+            <ImageButton
+                android:id="@+id/buttonCart"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:background="@drawable/bg_button_transparent"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.1" />
+
+            <TextView
+                android:id="@+id/textItemQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_text_quantity"
+                android:text="@{Integer.toString(detailVM.itemInCartQuantity)}"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/buttonCart"
+                app:layout_constraintTop_toTopOf="@id/buttonCart" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/buttonAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:drawableLeft="@drawable/ic_cart"
+            android:drawableTint="@android:color/white"
+            android:background="@drawable/bg_button_add_to_cart"
+            android:text="@string/text_add_to_cart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

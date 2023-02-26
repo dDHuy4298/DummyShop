@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bill"
+            type="com.sun.dummyshop.data.model.Bill" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layoutBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_8"
+        android:layout_marginVertical="@dimen/dp_4"
+        android:background="@drawable/bg_item_history"
+        android:paddingHorizontal="@dimen/dp_24"
+        android:paddingVertical="@dimen/dp_16">
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{bill.date}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_24"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textTotalItems"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@{@string/text_total_items(bill.totalItems)}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintEnd_toEndOf="@id/textDate"
+            app:layout_constraintStart_toStartOf="@id/textDate"
+            app:layout_constraintTop_toBottomOf="@id/textDate" />
+
+        <TextView
+            android:id="@+id/textTotalAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@{@string/text_total_amount(bill.totalAmount)}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintEnd_toEndOf="@id/textDate"
+            app:layout_constraintStart_toStartOf="@id/textDate"
+            app:layout_constraintTop_toBottomOf="@id/textTotalItems" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerBoughtItems"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:data="@{bill.itemsBought}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTotalAmount"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_bill_product" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

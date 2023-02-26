@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.sun.dummyshop.data.model.BillProduct" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dp_4"
+        android:padding="@dimen/dp_8">
+
+        <ImageView
+            android:id="@+id/imageBoughtProduct"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            app:image="@{product.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <TextView
+            android:id="@+id/textBoughtProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:text="@{product.name}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textBoughtProductPrice"
+            app:layout_constraintStart_toEndOf="@id/imageBoughtProduct"
+            app:layout_constraintTop_toTopOf="@id/imageBoughtProduct" />
+
+        <TextView
+            android:id="@+id/textBoughtProductPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@{@string/text_price(product.price)}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toTopOf="@+id/textBoughtProductQuantity"
+            app:layout_constraintStart_toEndOf="@id/imageBoughtProduct"
+            app:layout_constraintTop_toBottomOf="@+id/textBoughtProductName" />
+
+        <TextView
+            android:id="@+id/textBoughtProductQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@{@string/text_quantity(product.quantity)}"
+            android:textColor="@color/color_pickled_bluewood"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toBottomOf="@id/imageBoughtProduct"
+            app:layout_constraintStart_toEndOf="@id/imageBoughtProduct"
+            app:layout_constraintTop_toBottomOf="@+id/textBoughtProductPrice" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

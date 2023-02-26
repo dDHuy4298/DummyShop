@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">DummyShop</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_history">History</string>
+    <string name="title_top_rating">Top Rating</string>
+    <string name="title_top_selling">Top Selling</string>
+    <string name="title_categories">Categories</string>
+    <string name="title_similar_products">Similar Products</string>
+    <string name="title_price">Price</string>
+    <string name="title_rating">Rating</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_checkout">Checkout Successful</string>
+    <string name="title_internet">Internet Connection</string>
+    <string name="text_see_more">See more</string>
+    <string name="text_search_hint">What are you looking for?</string>
+    <string name="text_price">$ %s</string>
+    <string name="text_add_to_cart">Add to cart</string>
+    <string name="text_material">Material: %s</string>
+    <string name="text_material_default">Material: Unknown</string>
+    <string name="text_color">Color: %s</string>
+    <string name="text_color_default">Color: Unknown</string>
+    <string name="text_sold">Sold: %s</string>
+    <string name="text_stock">Stock: %s</string>
+    <string name="text_clear_all">Clear all</string>
+    <string name="title_search_history">Search history</string>
+    <string name="text_search_result">Result for \"%s\"</string>
+    <string name="text_price_filter">From $ %s to $ %s</string>
+    <string name="text_apply_filter">Apply</string>
+    <string name="text_no_result">No result</string>
+    <string name="text_empty_cart">Empty cart</string>
+    <string name="text_empty_favorite">Empty favorite</string>
+    <string name="text_empty_history">Empty history</string>
+    <string name="text_total">Total:</string>
+    <string name="text_checkout">Checkout</string>
+    <string name="text_back_to_home">Back to home</string>
+    <string name="text_total_items">Total products: %s</string>
+    <string name="text_total_amount">Total amount: $ %s</string>
+    <string name="text_quantity">Quantity: %s</string>
+    <string name="text_message_internet">Check your internet connection and reopen!</string>
+    <string name="text_ok">OK</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="text_added_to_cart">Added to cart</string>
+    <string-array name="value_range_slider">
+        <item>0</item>
+        <item>5000</item>
+    </string-array>
+</resources>

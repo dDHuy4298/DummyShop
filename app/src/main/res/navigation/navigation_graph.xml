@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.sun.dummyshop.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionHomeToCategory"
+            app:destination="@id/fragmentCategory"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionHomeToSearch"
+            app:destination="@id/fragmentSearch"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"/>
+        <action
+            android:id="@+id/actionHomeToDetail"
+            app:destination="@id/fragmentDetail"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionHomeToSeeMore"
+            app:destination="@id/fragmentSeeMore"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionHomeToCart"
+            app:destination="@id/fragmentCart"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCategory"
+        android:name="com.sun.dummyshop.ui.category.CategoryFragment"
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category">
+        <argument
+            android:name="category"
+            app:argType="com.sun.dummyshop.data.model.Category" />
+        <action
+            android:id="@+id/actionCategoryToSearch"
+            app:destination="@id/fragmentSearch"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionCategoryToDetail"
+            app:destination="@id/fragmentDetail"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionCategoryToCart"
+            app:destination="@id/fragmentCart"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="com.sun.dummyshop.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/actionSearchToSearchResult"
+            app:destination="@id/fragmentSearchResult"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDetail"
+        android:name="com.sun.dummyshop.ui.detail.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="product"
+            app:argType="com.sun.dummyshop.data.model.Product" />
+        <action
+            android:id="@+id/actionDetailToSeeMore"
+            app:destination="@id/fragmentSeeMore"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionDetailToCart"
+            app:destination="@id/fragmentCart"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSearchResult"
+        android:name="com.sun.dummyshop.ui.result.SearchResultFragment"
+        android:label="SearchResultFragment"
+        tools:layout="@layout/fragment_search_result">
+        <argument
+            android:name="keyword"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionSearchResultToDetail"
+            app:destination="@id/fragmentDetail"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSeeMore"
+        android:name="com.sun.dummyshop.ui.seemore.SeeMoreFragment"
+        android:label="SeeMoreFragment"
+        tools:layout="@layout/fragment_see_more">
+        <action
+            android:id="@+id/actionSeeMoreToDetail"
+            app:destination="@id/fragmentDetail"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionSeeMoreToCart"
+            app:destination="@id/fragmentCart"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCart"
+        android:name="com.sun.dummyshop.ui.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/actionCartToDetail"
+            app:destination="@+id/fragmentDetail"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionCartToCheckout"
+            app:destination="@id/fragmentCheckout"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCheckout"
+        android:name="com.sun.dummyshop.ui.checkout.CheckoutFragment"
+        android:label="CheckoutFragment"
+        tools:layout="@layout/fragment_checkout">
+        <action
+            android:id="@+id/actionCheckoutToHome"
+            app:destination="@id/fragmentHome"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <argument
+            android:name="bill"
+            app:argType="com.sun.dummyshop.data.model.Bill" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentFavorite"
+        android:name="com.sun.dummyshop.ui.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/actionFavoriteToDetail"
+            app:destination="@id/fragmentDetail"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/actionFavoriteToCart"
+            app:destination="@id/fragmentCart"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentHistory"
+        android:name="com.sun.dummyshop.ui.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/actionHistoryToCart"
+            app:destination="@id/fragmentCart"
+            app:enterAnim="@anim/anim_slide_in"
+            app:exitAnim="@anim/anim_slide_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+</navigation>

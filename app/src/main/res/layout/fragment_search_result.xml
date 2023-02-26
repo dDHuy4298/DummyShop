@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="resultVM"
+            type="com.sun.dummyshop.ui.result.SearchResultViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dp_56">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerSearchResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:overScrollMode="never"
+                    app:data="@{resultVM.products}"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:spanCount="2"
+                    tools:listitem="@layout/item_product" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_toolbar"
+            android:elevation="@dimen/dp_4"
+            android:paddingBottom="@dimen/dp_8">
+
+            <ImageButton
+                android:id="@+id/buttonBack"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_4"
+                android:background="@android:color/transparent"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="@id/textResultTitle"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textResultTitle" />
+
+            <TextView
+                android:id="@+id/textResultTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_8"
+                android:elevation="@dimen/dp_4"
+                android:padding="@dimen/dp_8"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/buttonFilter"
+                app:layout_constraintStart_toEndOf="@id/buttonBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/buttonFilter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:background="@android:color/transparent"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_filter"
+                app:layout_constraintBottom_toBottomOf="@id/textResultTitle"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textResultTitle" />
+
+            <TextView
+                android:id="@+id/textPriceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_32"
+                android:paddingTop="@dimen/dp_16"
+                android:text="@string/title_price"
+                android:textColor="@color/color_pickled_bluewood"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textResultTitle" />
+
+            <TextView
+                android:id="@+id/textPriceFilter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_32"
+                android:text="@{@string/text_price_filter(resultVM.minPrice, resultVM.maxPrice)}"
+                android:textAlignment="center"
+                android:textColor="@color/color_pickled_bluewood"
+                android:textSize="@dimen/sp_20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textPriceTitle"
+                app:layout_constraintTop_toBottomOf="@id/textPriceTitle" />
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/sliderPriceFilter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:stepSize="100"
+                android:valueFrom="0"
+                android:valueTo="5000"
+                app:labelBehavior="floating"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textPriceFilter"
+                app:thumbColor="@color/color_malibu"
+                app:tickColor="@color/color_alto"
+                app:trackColor="@color/color_alto"
+                app:values="@array/value_range_slider" />
+
+            <TextView
+                android:id="@+id/textRatingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/title_rating"
+                android:textColor="@color/color_pickled_bluewood"
+                android:textSize="@dimen/sp_24"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/textPriceTitle"
+                app:layout_constraintTop_toBottomOf="@id/sliderPriceFilter" />
+
+            <RatingBar
+                android:id="@+id/ratingFilter"
+                style="@style/ProductRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:isIndicator="false"
+                android:stepSize="1"
+                android:transformPivotX="0dp"
+                android:transformPivotY="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textRatingTitle" />
+
+            <Button
+                android:id="@+id/buttonApply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@drawable/bg_button_add_to_cart"
+                android:paddingHorizontal="@dimen/dp_32"
+                android:text="@string/text_apply_filter"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ratingFilter" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="buttonApply,textPriceTitle,textPriceFilter,sliderPriceFilter,textRatingTitle,ratingFilter" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textNoResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="@string/text_no_result"
+            android:textAlignment="center"
+            android:textSize="@dimen/sp_24"
+            android:textStyle="bold"
+            app:visibility="@{resultVM.isEmpty()}" />
+
+        <include
+            layout="@layout/dialog_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loading="@{resultVM.isLoading()}" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

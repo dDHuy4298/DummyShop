@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">DummyShop</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_favorite">Ưa thích</string>
+    <string name="title_history">Lịch sử thanh toán</string>
+    <string name="title_top_rating">Đánh giá cao</string>
+    <string name="title_top_selling">Bán chạy</string>
+    <string name="title_categories">Danh mục</string>
+    <string name="title_similar_products">Sản phẩm tương tự</string>
+    <string name="title_price">Giá</string>
+    <string name="title_rating">Đánh giá</string>
+    <string name="title_cart">Giỏ hàng</string>
+    <string name="title_checkout">Thanh toán thành công</string>
+    <string name="title_internet">Kết nối internet</string>
+    <string name="text_see_more">Xem thêm</string>
+    <string name="text_search_hint"><i>Bạn đang tìm kiếm gì?</i></string>
+    <string name="text_price">$ %s</string>
+    <string name="text_add_to_cart">Thêm vào giỏ hàng</string>
+    <string name="text_material">Vật liệu: %s</string>
+    <string name="text_material_default">Vật liệu: Không rõ</string>
+    <string name="text_color">Màu sắc: %s</string>
+    <string name="text_color_default">Màu săc: Không rõ</string>
+    <string name="text_sold">Đã bán: %s</string>
+    <string name="text_stock">Kho: %s</string>
+    <string name="text_clear_all">Xóa tất cả</string>
+    <string name="title_search_history">Lịch sử tìm kiếm</string>
+    <string name="text_search_result">Kết quả tìm kiếm \"%s\"</string>
+    <string name="text_price_filter">Từ $ %s đến $ %s</string>
+    <string name="text_apply_filter">Áp dụng</string>
+    <string name="text_no_result">Không có kết quả</string>
+    <string name="text_empty_cart">Giỏ hàng trống</string>
+    <string name="text_empty_favorite">Không có sản phẩm ưa thích</string>
+    <string name="text_empty_history">Chưa thanh toán lần nào</string>
+    <string name="text_total">Tổng:</string>
+    <string name="text_checkout">Thanh toán</string>
+    <string name="text_back_to_home">Trở về trang chủ</string>
+    <string name="text_total_items">Tổng số sản phẩm: %s</string>
+    <string name="text_total_amount">Tổng tiền: $ %s</string>
+    <string name="text_quantity">Số lượng: %s</string>
+    <string name="text_message_internet">Kiểm tra kết nối internet và mở lại DummyShop!</string>
+    <string name="text_ok">OK</string>
+    <string name="text_cancel">Hủy</string>
+    <string name="text_added_to_cart">Đâ thêm vào giỏ hàng</string>
+    <string-array name="value_range_slider">
+        <item>0</item>
+        <item>5000</item>
+    </string-array>
+</resources>
